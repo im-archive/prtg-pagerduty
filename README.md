@@ -1,6 +1,8 @@
 # PRTG/PagerDuty Notification Integration
 
 
+[![Build Status](https://travis-ci.org/TWExchangeSolutions/prtg-pagerduty.svg?branch=master)](https://travis-ci.org/TWExchangeSolutions/prtg-pagerduty)
+
 ## Goals
 
 * Create incidents using version 2 of the PagerDuty Events API for triggered PRTG alerts.
