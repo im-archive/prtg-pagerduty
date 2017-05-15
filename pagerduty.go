@@ -2,9 +2,9 @@ package main
 
 import (
 	"flag"
+	"github.com/TWExchangeSolutions/prtg-pagerduty/event"
 	"log"
 	"strings"
-	"./event"
 	"time"
 )
 
@@ -57,27 +57,26 @@ func main() {
 	}
 }
 
-
 func triggerEvent(prtg *PRTGEvent) (*event.EventResponse, error) {
 	const layout = "2006-01-02T15:04:05.000Z"
-	t,err := time.Parse(layout, prtg.Date)
+	t, err := time.Parse(layout, prtg.Date)
 	if err != nil {
 		t = time.Now()
 	}
 	newEvent := &event.Event{
 		RoutingKey: prtg.ServiceKey,
-		Action: "trigger",
-		DedupKey: prtg.IncidentKey,
-		Client: "PRTG: " + prtg.IncidentKey,
-		ClientURL: prtg.Link,
+		Action:     "trigger",
+		DedupKey:   prtg.IncidentKey,
+		Client:     "PRTG: " + prtg.IncidentKey,
+		ClientURL:  prtg.Link,
 		Payload: &event.EventPayload{
-			Summary: prtg.IncidentKey,
+			Summary:   prtg.IncidentKey,
 			Timestamp: t.Format(layout),
-			Source: prtg.Link,
-			Severity: prtg.Severity,
+			Source:    prtg.Link,
+			Severity:  prtg.Severity,
 			Component: prtg.Device,
-			Group: prtg.Probe,
-			Class: prtg.Name,
+			Group:     prtg.Probe,
+			Class:     prtg.Name,
 			Details: "Link: " + prtg.Link +
 				"\nIncidentKey: " + prtg.IncidentKey +
 				"\nStatus: " + prtg.Status +
@@ -95,8 +94,8 @@ func triggerEvent(prtg *PRTGEvent) (*event.EventResponse, error) {
 func resolveEvent(prtg *PRTGEvent) (*event.EventResponse, error) {
 	triggeredEvent := &event.Event{
 		RoutingKey: prtg.ServiceKey,
-		Action: "resolve",
-		DedupKey: prtg.IncidentKey,
+		Action:     "resolve",
+		DedupKey:   prtg.IncidentKey,
 	}
 	res, err := event.ManageEvent(*triggeredEvent)
 	if err != nil {
