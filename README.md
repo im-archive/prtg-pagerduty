@@ -14,6 +14,8 @@
 
 Build the package
 
+`go get github.com/TWExchangeSolutions/prg-pagerduty`
+
 `go build`
 
 From an Adminstrator powershell session:
