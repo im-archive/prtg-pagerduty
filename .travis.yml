@@ -1,0 +1,8 @@
+language: go
+
+go:
+  - 1.8
+
+install:
+  - go get github.com/TWExchangeSolutions/prtg-pagerduty/event
+  - go get gopkg.in/jarcoal/httpmock.v1
