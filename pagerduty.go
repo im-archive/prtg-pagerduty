@@ -8,6 +8,7 @@ import (
 	"time"
 )
 
+// PRTGEvent represents the data passed by prtg via flags
 type PRTGEvent struct {
 	Probe       string
 	Device      string
@@ -57,7 +58,7 @@ func main() {
 	}
 }
 
-func triggerEvent(prtg *PRTGEvent) (*event.EventResponse, error) {
+func triggerEvent(prtg *PRTGEvent) (*event.Response, error) {
 	const layout = "2006-01-02T15:04:05.000Z"
 	t, err := time.Parse(layout, prtg.Date)
 	if err != nil {
@@ -69,7 +70,7 @@ func triggerEvent(prtg *PRTGEvent) (*event.EventResponse, error) {
 		DedupKey:   prtg.IncidentKey,
 		Client:     "PRTG: " + prtg.IncidentKey,
 		ClientURL:  prtg.Link,
-		Payload: &event.EventPayload{
+		Payload: &event.Payload{
 			Summary:   prtg.IncidentKey,
 			Timestamp: t.Format(layout),
 			Source:    prtg.Link,
@@ -91,7 +92,7 @@ func triggerEvent(prtg *PRTGEvent) (*event.EventResponse, error) {
 	return res, nil
 }
 
-func resolveEvent(prtg *PRTGEvent) (*event.EventResponse, error) {
+func resolveEvent(prtg *PRTGEvent) (*event.Response, error) {
 	triggeredEvent := &event.Event{
 		RoutingKey: prtg.ServiceKey,
 		Action:     "resolve",
