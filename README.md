@@ -2,6 +2,7 @@
 
 
 [![Build Status](https://travis-ci.org/TWExchangeSolutions/prtg-pagerduty.svg?branch=master)](https://travis-ci.org/TWExchangeSolutions/prtg-pagerduty)
+[![Go Report Card](https://goreportcard.com/badge/github.com/TWExchangeSolutions/prtg-pagerduty)](https://goreportcard.com/report/github.com/TWExchangeSolutions/prtg-pagerduty)
 
 ## Goals
 
