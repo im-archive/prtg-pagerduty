@@ -1,8 +1,8 @@
 # PRTG/PagerDuty Notification Integration
 
 
-[![Build Status](https://travis-ci.org/TWExchangeSolutions/prtg-pagerduty.svg?branch=master)](https://travis-ci.org/TWExchangeSolutions/prtg-pagerduty)
-[![Go Report Card](https://goreportcard.com/badge/github.com/TWExchangeSolutions/prtg-pagerduty)](https://goreportcard.com/report/github.com/TWExchangeSolutions/prtg-pagerduty)
+[![Build Status](https://travis-ci.org/WTW-IM/prtg-pagerduty.svg?branch=master)](https://travis-ci.org/WTW-IM/prtg-pagerduty)
+[![Go Report Card](https://goreportcard.com/badge/github.com/WTW-IM/prtg-pagerduty)](https://goreportcard.com/report/github.com/WTW-IM/prtg-pagerduty)
 
 ## Goals
 
@@ -15,7 +15,7 @@
 
 Build the package
 
-`go get github.com/TWExchangeSolutions/prg-pagerduty`
+`go get github.com/WTW-IM/prg-pagerduty`
 
 `go build`
 
