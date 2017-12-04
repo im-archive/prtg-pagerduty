@@ -2,7 +2,7 @@ package main
 
 import (
 	"flag"
-	"github.com/TWExchangeSolutions/prtg-pagerduty/event"
+	"github.com/WTW-IM/prtg-pagerduty/event"
 	"log"
 	"strings"
 	"time"

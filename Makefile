@@ -1,4 +1,4 @@
 .PHONY: test
 
 test: 
-	go test github.com/TWExchangeSolutions/prtg-pagerduty/event
+	go test github.com/WTW-IM/prtg-pagerduty/event
